@@ -41,7 +41,7 @@ const Chat = () => {
         const newMessage = {
             UserName: 'own', // Indicate this is the user's message
             msg: message,
-            date: new Date(),
+            date: new Date().toLocaleString(),
         };
 
         // Update the messages state by appending the new message
@@ -55,7 +55,7 @@ const Chat = () => {
         const data = {
             UserName: name,
             msg: message,
-            date: new Date(),
+            date: new Date().toLocaleString(),
         };
         console.log(data);
         socket.emit('message', data);
@@ -82,7 +82,7 @@ const Chat = () => {
                         <li key={index} className={msg.UserName === 'own' ? 'message-right' : 'message-left'}>
                             <p className="message">
                                 {msg.msg}
-                                <span>{msg.UserName} ● {msg.date.toLocaleString()}</span>
+                                <span>{msg.UserName} ● {msg.date}</span>
                             </p>
                         </li>
                     ))}
