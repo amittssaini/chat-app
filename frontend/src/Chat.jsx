@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import socketIO from 'socket.io-client';
 
-const socket = socketIO('http://localhost:8082', { transports: ['websocket'] });
+const ENDPOINT = 'https://chat-app-me98.onrender.com'
+const socket = socketIO(ENDPOINT, { transports: ['websocket'] });
 
 const Chat = () => {
     const [totalClients, setTotalClients] = useState(0);
